@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P3</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #ebebeb;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: black;
+      font-size: 20px;
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      color: blue;
+      font-size: 12px;
+      margin: 1px auto;
+      width: fit-content;
+    }
+
+    #tooltip {
+      pointer-events: none;
+      z-index: 1000;
+    }
+    button{
+      margin-top: 10px;
+    }
+    .container {
+    display: none; /* Hide containers by default */
+    align-items: flex-start; /* Align content to the top */
+    justify-content: center; /* Center the content horizontally */
+  }
+
+  .active {
+    display: flex; /* Show the active container with flexbox */
+  }
+  </style>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script type="module" src="source/main.js"></script>
+</head>
+
+<body>
+  <p>AI Radiography</p>
+  <a href="https://www.canva.com/design/DAGcCqktPdo/4rEFpAB0D54XEKAzZLWYfQ/edit?utm_content=DAGcCqktPdo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">
+    UML Diagram
+  </a>
+  <a href="https://docs.google.com/document/d/13C-ynqyWFMy0DzmSuHPICSoO8zm2b07Z97fdV5F9pus/edit?usp=sharing">Runtime Analysis</a>
+  <a href="https://github.com/michellelius/age-visualisation">Github</a>
+  <div style="text-align: center; margin-bottom: 20px;">
+    <button onclick="showDiv('circle-container')">Radiation Overexposure, Monetary Value, & Radiologist Replacement (HES)</button>
+    <button onclick="showDiv('treemap-container')">Accessibility Disparity & Foreign Technology Dependency (SE)</button>
+    <button onclick="showDiv('force-container')">Misdiagnosis (H)</button>
+  </div>
+
+  <div id="circle-container" class="container"></div>
+  <div id="treemap-container" class="container"></div>
+  <div id="force-container" class="container"></div>
+
+  <script>
+    function showDiv(id) {
+      // Hide all containers
+      const containers = document.querySelectorAll('.container');
+      containers.forEach(container => container.classList.remove('active'));
+
+      // Show the selected container
+      const selectedContainer = document.getElementById(id);
+      selectedContainer.classList.add('active');
+    }
+  </script>
+</body>
+
+</html>
